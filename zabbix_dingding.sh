@@ -9,30 +9,23 @@ LOGFILE="/tmp/dingding.log"
 exec 1>"$LOGFILE"
 exec 2>&1
 
-url="http://127.0.0.1/zabbix"
 CURL="/usr/bin/curl"
 to=$1
 subject=$2
 body=$3
-${CURL}  'https://oapi.dingtalk.com/robot/send?access_token=789d574d7863df023f70e4d9951f47f04828120e07403d0ac9b682774f11d8db' \
+${CURL}  'https://oapi.dingtalk.com/robot/send?access_token=XXXXXXXXX' \
    -H 'Content-Type: application/json' \
    -d """
  {
      \"msgtype\": \"markdown\",
      \"markdown\": {
-         \"title\":\"${subject}@18011583505\",
+         \"title\":\"${subject}@18*****5\",
          \"text\": \"${body}\"
      },
     \"at\": {
         \"atMobiles\": [ 
-            \"18011583505\",
+            \"18*****5\",
         ], 
         \"isAtAll\": false
     }
  }"""
-#{\"msgtype\": \"text\", 
-#    \"text\": {
-#        \"content\": "$body"\n
-#     }
-#  }"""
-##echo $body >> /tmp/dingding.log
