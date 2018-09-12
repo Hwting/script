@@ -14,7 +14,7 @@ docker volume ls -qf dangling=true | xargs -r docker volume rm
 
 docker volume rm $(docker volume ls -qf dangling=true)
 #Clean Images
-Cleans all images that are not used by any running container. This includes old versions of images.
+#Cleans all images that are not used by any running container. This includes old versions of images.
 
 docker rmi $(docker images -qf dangling=true)
 #Clean exited and dead containers and their volumes
