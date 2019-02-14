@@ -1,27 +1,28 @@
-zabbixÅäÖÃ×Ô¶¯·¢ÏÖ¹æÔò¼à¿Øjmv½ø³Ì
-¼à¿Øhadoop½ø³ÌÊ¾Àı£º
+zabbixé…ç½®è‡ªåŠ¨å‘ç°è§„åˆ™ç›‘æ§jmvè¿›ç¨‹
+ç›‘æ§hadoopè¿›ç¨‹ç¤ºä¾‹ï¼š
 zabbix3.2.4
-µ¼Èëtemplate
-Ìí¼ÓÅäÖÃ
+å¯¼å…¥template
+æ·»åŠ é…ç½®
 zabbix_agentd.conf
 ```
 Include=/etc/zabbix/zabbix_agentd.d/*.conf
+UnsafeUserParameters=1
 ```
-shell½Å±¾·Å¶ÔÓ¦
+åœ¨zabbix_agentd.confä¸­æ·»åŠ ç›¸å…³çš„key shellè„šæœ¬æ”¾å¯¹åº”
 ```
 zabbix_agentd.d/zb_java_discovery.conf
 UserParameter=javaps,/etc/zabbix/scripts/zbx_java_discovery.sh
 ```
-ĞŞ¸ÄzabbixÓÃ»§sudoÈ¨ÏŞ
+ä¿®æ”¹zabbixç”¨æˆ·sudoæƒé™
 ```
  cat /etc/sudoers | grep zabbi
 zabbix  ALL=(ALL)       NOPASSWD:/opt/jdk/jdk1.7.0_76/bin/jps
 ```
-ÖØÆôzabbixagent
-ÔÚzabbixagent²âÊÔ²é¿´UserParameter»ñÈ¡Êı¾İ
+é‡å¯zabbixagent
+åœ¨zabbixagentæµ‹è¯•æŸ¥çœ‹UserParameterè·å–æ•°æ®
 ```
 /usr/local/zabbix2.4.7/sbin/zabbix_agentd -t javaps 
-/usr/local/zabbix3.2.4/bin/zabbix_get  -s 192.168.1.22 -p 10050 -k javaps ÔÚserver¶Ë»ñÈ¡UserParameterÊı¾İ
+/usr/local/zabbix3.2.4/bin/zabbix_get  -s 192.168.1.22 -p 10050 -k javaps åœ¨serverç«¯è·å–UserParameteræ•°æ®
 {"data":[
 {"{#JAVAPSNAME}":"org.apache.hadoop.hdfs.server.namenode.NameNode","{#JAVAPSPID}":"2798"}
 ,{"{#JAVAPSNAME}":"org.apache.hadoop.hdfs.qjournal.server.JournalNode","{#JAVAPSPID}":"3056"}
