@@ -1,5 +1,5 @@
 #!/bin/bash
-javaProcessList=`sudo -u hadoop /opt/jdk/jdk1.7.0_76/bin/jps -l | grep -v Jps | grep -v Jstat | awk '{print $1"#"$2}' | grep "^[0-9]*#[a-zA-Z].*" `
+javaProcessList=`sudo -u hadoop $JAVA_HOME/bin/jps -l | grep -v Jps | grep -v Jstat | awk '{print $1"#"$2}' | grep "^[0-9]*#[a-zA-Z].*" `
 echo "{\"data\":["
 first=1
 for javaProcess in $javaProcessList;
